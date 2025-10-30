@@ -2,6 +2,8 @@ package com.example.pedido.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +20,7 @@ public class Pedido {
     private String descricao;
 
     @OneToMany(mappedBy="pedido", cascade=CascadeType.ALL)
+    @JsonManagedReference
     private List<ItemPedido> itens;
 
     public Long getId() {
